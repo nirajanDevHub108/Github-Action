@@ -12,9 +12,9 @@ jobs:
     echo-goodbye:
         runs-on: ubuntu-latest
         steps:
-            - name: Failed step 
+            - name: successful step 
               run: |
-                echo "I will Fail"
-                exit 1
+                echo "I will success"
+                exit 0
             - name: Goodbye
               run: echo "Goodbye!"
