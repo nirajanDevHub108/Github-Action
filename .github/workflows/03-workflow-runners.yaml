@@ -15,6 +15,7 @@ jobs:
         runs-on: windows-latest
         steps:
             - name: Show OS
+              shell: bash
               run: |
                echo "This job is Running on a Window  Runner"
 
@@ -23,6 +24,7 @@ jobs:
         runs-on: macos-latest
         steps:
             - name: Show OS
+              shell: bash
               run: |
                 echo "This job is Running on a MACOS  Runner"
             
