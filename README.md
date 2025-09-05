@@ -77,3 +77,10 @@ virtual servers that executes the jobs from workflow
 Do not use self-hosted runners in public repositories.
 
 - Keep the VM resources in mind, especially when running commands that rely on parallel execution, ex, parallel jest tests
+
+# *GITHUB ACTION/Actions*
+
+custom applications to perform complex, frequently repeated tasks 
+Enables great flexibility with key-value pair
+can be combined with other steps ,encapstulates with other task
+we can create our own actions for public /private  use
