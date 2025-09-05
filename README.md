@@ -65,3 +65,15 @@ and so on ....
 
 VISIT THIS LINK for more info:
 [text](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request)
+
+# **03-worflow-Runners**
+virtual servers that executes the jobs from workflow
+-Github-hosted Runner
+
+-Self-Hosted Runners
+
+# **Note/warning*
+
+Do not use self-hosted runners in public repositories.
+
+- Keep the VM resources in mind, especially when running commands that rely on parallel execution, ex, parallel jest tests
