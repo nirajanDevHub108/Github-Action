@@ -1,0 +1,72 @@
+name: Create Promotion Branch & PR
+
+on:
+  workflow_dispatch:
+    inputs:
+      feature_branch:
+        description: 'Feature branch name (e.g. feature-01)'
+        required: true
+      destination_branch:
+        description: 'Destination branch (e.g. SIT)'
+        required: true
+      promotion_suffix:
+        description: 'Optional suffix for promo branch (e.g. release-id)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-promotion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create promotion branch and PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FEATURE: ${{ github.event.inputs.feature_branch }}
+          DEST: ${{ github.event.inputs.destination_branch }}
+          SUFFIX: ${{ github.event.inputs.promotion_suffix }}
+        run: |
+          set -e
+
+          OWNER=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f1)
+          REPO=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f2)
+
+          echo "Repository: $OWNER/$REPO"
+          echo "Feature branch: $FEATURE"
+          echo "Destination branch: $DEST"
+
+          # Make sure remote refs are up-to-date
+          git fetch origin
+
+          # Build promotion branch name
+          PROMO_BRANCH="${FEATURE}_PROMO"
+          if [ -n "$SUFFIX" ]; then
+            PROMO_BRANCH="${PROMO_BRANCH}_${SUFFIX}"
+          fi
+
+          echo "Creating promotion branch: $PROMO_BRANCH"
+
+          # Create branch from feature branch
+          git checkout -b "$PROMO_BRANCH" "origin/$FEATURE"
+
+          # Push promotion branch
+          git push origin "$PROMO_BRANCH"
+
+          # Create PR (promotion branch -> destination branch)
+          PR_TITLE="Promotion: $FEATURE → $DEST"
+          PR_BODY="Auto-created promotion branch **$PROMO_BRANCH** from **$FEATURE**.\n\nTarget: **$DEST**\n\nThis PR requires DevOps team review."
+
+          curl -s -X POST \
+            -H "Authorization: token ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -d "$(jq -n --arg title "$PR_TITLE" --arg head "$PROMO_BRANCH" --arg base "$DEST" --arg body "$PR_BODY" '{title:$title, head:$head, base:$base, body:$body}')" \
+            "https://api.github.com/repos/${OWNER}/${REPO}/pulls"
