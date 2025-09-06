@@ -21,7 +21,10 @@ jobs:
               with:
                 node-version: '20.x'
             - name: Install Dependencies
-              run : npm ci
+              run : npm install
+                  
+            - name: Verify react-scripts is installed
+              run: ls -l node_modules/.bin
               
               
               #execute automated test
