@@ -10,8 +10,14 @@ jobs:
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
-            - name: printing Folders
-              run : ls
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                node-version: '20.x'
+            - name: Install Dependencies
+
+              run : npm ci
+              working-directory: my-react-app
 
         #1.instal deps of our react application
 
