@@ -10,15 +10,20 @@ jobs:
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
+
+            #1.instal deps of our react application
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
                 node-version: '20.x'
             - name: Install Dependencies
-
               run : npm ci
               working-directory: my-react-app
+              
+              #execute automated test
+            - name: Run Unit Tests
+              run : npm run test
+              
+       
 
-        #1.instal deps of our react application
-
-        #execute automated test
+        
