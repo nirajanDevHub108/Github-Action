@@ -95,3 +95,13 @@ specify which types of certain trigger execute our workflow
 
 -pull_request event
   -opened,synchronize,closed,assigned,labeled,edited (these are the activity of pull request)
+
+- on:
+pull_request:
+
+  types:  [opened, synchronized]
+
+branches:
+   - main
+  - 'mona/octocat'
+  - 'releases/**'
