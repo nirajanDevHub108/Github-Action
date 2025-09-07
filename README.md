@@ -85,3 +85,7 @@ Enables great flexibility with key-value pair
 can be combined with other steps ,encapstulates with other task
 we can create our own actions for public /private  use
 
+# *Event Filters *
+it specify under which conditions a specific event triggers our workflow
+-push event 
+something on specified branches(like ,main,sit,UAT) , branches_ignore,tags,tags_ignore,path,paths_ignore
