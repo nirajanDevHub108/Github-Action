@@ -95,3 +95,12 @@ specify which types of certain trigger execute our workflow
 
 -pull_request event
   -opened,synchronize,closed,assigned,labeled,edited (these are the activity of pull request)
+
+ # *Workflow Contexts* 
+ -access information about runs,variable jobs,and much more
+ -Github provides multiple sources of data in diffrent context so thta we can easily provide all the necessary information to our workloads
+-github :commit -SHA ,Event name,ref of branch or tag triggering the flow
+-env : contains var that have been defined in a workflow,step
+-inputs: contains input properties passed via the keyword with to an action, to a reusable workflow,or to trigger manually
+- vars contans custom config variable at organization,repo levels
+-secrets,matrix,needs ...
