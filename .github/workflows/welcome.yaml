@@ -10,7 +10,11 @@ jobs:
     name: Post Welcome comment
     runs-on: ubuntu-latest
     steps: 
-      - run: gh pr comment "$PR_URL" --body "Welcome to the repository!"
-        env: 
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PR_URL: ${{ github.event.pull_request.html_url}}
+     - name : Post Welocme Comment
+       run: |
+         AUTHOR=${{ github.event.pull_request.user.login }}
+         gh pr comment "$PR_URL" --body "👋 Welcome @$AUTHOR! 🎉 Thanks for opening your first PR in this repository. We’re excited to have your contribution 🚀 "
+        
+       env: 
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        PR_URL: ${{ github.event.pull_request.html_url}}
