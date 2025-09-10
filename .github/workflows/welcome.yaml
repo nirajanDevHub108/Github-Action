@@ -9,6 +9,10 @@ jobs:
    welcome:
     name: Post Welcome comment
     runs-on: ubuntu-latest
+
+    # ✅ Only run if PR author is a first-time contributor
+
+    if: ${{github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'}}
     steps: 
      - name : Post Welocme Comment
        run: |
