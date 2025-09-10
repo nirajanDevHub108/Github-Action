@@ -104,3 +104,7 @@ specify which types of certain trigger execute our workflow
 -inputs: contains input properties passed via the keyword with to an action, to a reusable workflow,or to trigger manually
 - vars contans custom config variable at organization,repo levels
 -secrets,matrix,needs ...
+
+# *Expressions* 
+use dynamic values and expression in workflow
+-can be used to refrence information from multiple sources within the workflow
