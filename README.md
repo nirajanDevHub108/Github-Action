@@ -108,3 +108,8 @@ specify which types of certain trigger execute our workflow
 # *Expressions* 
 use dynamic values and expression in workflow
 -can be used to refrence information from multiple sources within the workflow
+-must uses ${{<expression>}} syntax
+-literals-string,numbers,bollean,null
+-context values :value passed via the many workflow
+-functions -builin github function
+-supports the use of function and opeartors such as !,<,>,!=,&&,||
