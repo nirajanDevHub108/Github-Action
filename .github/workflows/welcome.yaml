@@ -1,24 +1,46 @@
-name: Post Welcome comment
+name: Post Welcome Comment
+
 on:
   pull_request:
     types: [opened]
+
 permissions:
   pull-requests: write
 
 jobs:
-   welcome:
-    name: Post Welcome comment
+  welcome:
+    name: Post Welcome Comment for first contributor
     runs-on: ubuntu-latest
 
-    # ✅ Only run if PR author is a first-time contributor
+    steps:
+      - name: Check if this is the first PR by the Author in this repo
+        id: check_first_pr
+        run: |
+          AUTHOR="${{ github.event.pull_request.user.login }}"
+          REPO="${{ github.repository }}"
+          CURRENT_PR="${{ github.event.pull_request.number }}"
 
-    if: ${{github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'}}
-    steps: 
-     - name : Post Welocme Comment
-       run: |
-         AUTHOR=${{ github.event.pull_request.user.login }}
-         gh pr comment "$PR_URL" --body "👋 Welcome @$AUTHOR! 🎉 Thanks for opening your first PR in this repository. We’re excited to have your contribution 🚀 "
-        
-       env: 
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        PR_URL: ${{ github.event.pull_request.html_url}}
+          # Get the number of PRs opened by the author in this repo (excluding the current one)
+          COUNT=$(gh pr list \
+            --repo "$REPO" \
+            --author "$AUTHOR" \
+            --state all \
+            --json number \
+            --jq "[.[] | select(.number != $CURRENT_PR)] | length")
+
+          echo "Previous PRs count = $COUNT"
+          echo "pr_count=$COUNT" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Post Welcome Comment
+        if: ${{ steps.check_first_pr.outputs.pr_count == '0' && github.event.pull_request.base.ref == 'main' }}
+        run: |
+          AUTHOR="${{ github.event.pull_request.user.login }}"
+          REPO_NAME=$(basename "${{ github.repository }}")
+
+          gh pr comment "${{ github.event.pull_request.html_url }}" \
+            --body "🎉 Welcome @$AUTHOR to the team! 👋 Thanks for opening your first PR in the **${REPO_NAME}** repository.
+          We're excited to have your contribution 🚀"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
