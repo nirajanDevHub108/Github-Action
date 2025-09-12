@@ -18,3 +18,5 @@ jobs:
             run: |
                 echo " Step env Var : ${{env.STEP_VAR}}"
                 echo " Step env Var 2 : $step_var2"
+                echo " Step env Var : ${{env.JOB_VAR}}"
+                echo " Step env Var : ${{env.ENV_VAR}}"
