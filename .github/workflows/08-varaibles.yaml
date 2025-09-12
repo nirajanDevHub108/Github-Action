@@ -1,0 +1,15 @@
+name: 08- Using Variables
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps: 
+          - name: Print Env Vraibles
+            env:
+               STEP_VAR: 'I am Step emv var'
+            run: |
+                echo ""
