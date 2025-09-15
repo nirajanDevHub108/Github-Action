@@ -4,7 +4,7 @@
 
 GitHub Actions is a CI/CD (Continuous Integration/Continuous Deployment) platform that allows you to automate your build, test, and deployment pipeline directly within your GitHub repository.
 
-## Key Concepts
+## Key Concepts 
 
 - **Workflows:** YAML files stored in the `.github/workflows` directory of your repository that define your automation processes.
 - **Events:** Specific activities that trigger a workflow (e.g., push, pull request, issue creation).
