@@ -18,7 +18,8 @@ jobs:
                   EOF
            - name: Bug Step
              if: ${{ !cancelled() && contains(github.event.pull_request.title,'fix')}}
-             run: echo"I am a Bug Fix"
+             run: |
+                echo "I am a Bug Fix"
            - name: sleep for 20 seconds
              run: sleep 20
            - name: Failing step
