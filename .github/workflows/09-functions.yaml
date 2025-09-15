@@ -1,0 +1,23 @@
+name: 09 - Using Functions
+
+on:
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    echo1:
+        runs-on: ubuntu-latest
+        steps: 
+           - name: failing-steps
+             run: |
+                exc
+           - name: I will be skipped
+             run: 
+                   echo "I will print if previous steps succeed"
+           - name: I will execute
+             run: 
+                echo "I will print if any previous steps fails" 
+          
+           - name: I will execute
+             run: 
+                echo "I will print if previous steps succeed"

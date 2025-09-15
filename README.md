@@ -118,5 +118,8 @@ use dynamic values and expression in workflow
 
 # *Functions* 
 - out-of box functions to model complex behaviour
-1.genral purpose functions-cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
-2.status check functions -
+1.genral purpose functions-set of utilty to interact with data from multiple contexts and model,more complex behaviour
+cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
+
+2.status check functions - provides a set of function that allows uisng the status of the workflow.
+-success(),failure(),always(),cancelled()
