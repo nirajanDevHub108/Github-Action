@@ -1,4 +1,4 @@
-***Repository contains all the notes and code***
+***Repository contains all the notes and code of GITHUB ACTION ***
 
 # GitHub Actions Basics
 
