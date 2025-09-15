@@ -8,6 +8,17 @@ jobs:
     echo1:
         runs-on: ubuntu-latest
         steps: 
+           - name : Print PR Title
+             run: echo " $ {{github.event.pull_request.title}}"
+           
+           - name: Print PR labels
+             run: |
+                  cat << EOF
+                  ${{toJson(github.event.pull_request.labels)}}
+                  EOF
+           - name: Bug Step
+             if: ${{ !cancelled() && contains(github.event.pull_request.title,'fix')}}
+             run: echo"I am a Bug Fix"
            - name: sleep for 20 seconds
              run: sleep 20
            - name: Failing step
