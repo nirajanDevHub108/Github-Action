@@ -115,3 +115,8 @@ use dynamic values and expression in workflow
 -supports the use of function and opeartors such as !,<,>,!=,&&,||
 
 -multiple workflows organization <--overrides repository <--> environment
+
+# *Functions* 
+- out-of box functions to model complex behaviour
+1.genral purpose functions-cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
+2.status check functions -
