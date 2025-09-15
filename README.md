@@ -1,6 +1,6 @@
 ***Repository contains all the notes and code of GITHUB ACTION ***
 
-# GitHub Actions Basics
+# GitHub Actions Basics Explanation
 
 GitHub Actions is a CI/CD (Continuous Integration/Continuous Deployment) platform that allows you to automate your build, test, and deployment pipeline directly within your GitHub repository.
 
