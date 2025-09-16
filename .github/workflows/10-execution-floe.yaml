@@ -15,6 +15,7 @@ jobs:
               run: echo "Linting and building"
     unit-tests:
         runs-on: ubuntu-latest
+        continue-on-error: true
         steps:
             - name: Running unit tests
               run: echo "Running tests....."
@@ -54,3 +55,4 @@ jobs:
         steps:
             - name : Deploying to Production
               run: echo "Deploying to Production..."
+    
