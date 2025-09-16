@@ -15,7 +15,7 @@ jobs:
               run: echo "Linting and building"
     unit-tests:
         runs-on: ubuntu-latest
-        continue-on-error: true
+        continue-on-error: true # this will help us to run below step even after failing the above steps
         steps:
             - name: Running unit tests
               run: echo "Running tests....."
