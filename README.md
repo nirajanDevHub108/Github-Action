@@ -123,3 +123,10 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 
 2.status check functions - provides a set of function that allows uisng the status of the workflow.
 -success(),failure(),always(),cancelled()
+
+# *Controlling the execution* 
+
+- via if key 
+(standard execution) -execute only if upstream jobs and steps executed
+- conditional execution- downstream jobs and steps can be executed even after upstream job get failed.
+
