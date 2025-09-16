@@ -136,4 +136,6 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 
 # *Inputs* 
 
-- provide information to customize worflow and actions -enable us to repeat specific information from the workflow or action caller and use the information at runtime
+- github - actions provide information to customize worflow and actions -enable us to repeat specific information from the workflow or action caller and use the information at runtime
+
+-caller - using with keyword - use  url: or certain workflow versions in jobs.
