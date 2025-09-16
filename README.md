@@ -130,3 +130,6 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 (standard execution) -execute only if upstream jobs and steps executed
 - conditional execution- downstream jobs and steps can be executed even after upstream job get failed.
 
+- sequential job execution key via-needs key
+-non-dipendent execution (all jobs executed in prallel by default)
+-dependent execution (jobs wait until their dependencies succefully execute)
