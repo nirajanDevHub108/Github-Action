@@ -9,7 +9,7 @@ on:
                 default: false
             target:
                 type: environment
-                required: true
+                required: false
                 description: Which environment the workflow will target
             tag:
                 type: choice
