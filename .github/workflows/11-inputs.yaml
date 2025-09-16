@@ -1,0 +1,15 @@
+name: 11 - workflow with inputs
+
+on: 
+    workflow_dispatch:
+        inputs:
+            dry-run:
+                type: boolean
+                description: Skip deployment and only print build
+                default: false
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build
+              run: echo "Building from tag "
