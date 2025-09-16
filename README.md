@@ -133,3 +133,7 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 - sequential job execution key via-needs key
 -non-dipendent execution (all jobs executed in prallel by default)
 -dependent execution (jobs wait until their dependencies succefully execute)
+
+# *Inputs* 
+
+- provide information to customize worflow and actions -enable us to repeat specific information from the workflow or action caller and use the information at runtime
