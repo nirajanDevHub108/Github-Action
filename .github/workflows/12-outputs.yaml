@@ -26,4 +26,5 @@ jobs:
               id: build
               run: |
                   echo "status=${{github.event.inputs['build-status']}}" >> $GITHUB_OUTPUT
+              shell: bash
               
