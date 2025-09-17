@@ -140,4 +140,8 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 
 -caller - using with keyword - use  url: or certain workflow versions in jobs.
 
-# *Actions* 
+# *Outputs* 
+
+-it let one step pass data to another step in workflow in later steps ,they enable dynamic workflow where later steps depends on the result of  previous steps
+
+- we can set out put in 2 ways -uisng id and set-output(legecy)
