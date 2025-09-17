@@ -25,7 +25,12 @@ jobs:
             - name: Build
               id: build
               run: |
+                  echo "$GITHUB_OUTPUT"
                   echo "status=${{github.event.inputs['build-status']}}" >> $GITHUB_OUTPUT
+                  echo "output1=value1" >> "$GITHUB_OUTPUT"
+                  echo "output2=value2" >> "$GITHUB_OUTPUT"
+                  cat "$GITHUB_OUTPUT"
+
               shell: bash
     
     deploy:
