@@ -1,0 +1,29 @@
+name: 12 - working with outputs
+
+on:
+    workflow_dispatch:
+        inputs:
+            build-status:
+                description: 'Select the build status'
+                required: true
+                default: 'success'
+                type: choice
+                options:
+                    - success
+                    - failure
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        outputs:
+            build-status: ${{steps.build.outputs.status}}
+        steps:
+            - name: Print GITHUB_OUTPUT path
+              run:
+                  echo "GITHUB_OUTPUT path:$GITHUB_OUTPUT"
+            
+            
+            - name: Build
+              id: build
+              run: |
+                  echo "status=${{github.event.inputs['build-status']}}" >> $GITHUB_OUTPUT
+              
