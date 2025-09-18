@@ -22,7 +22,7 @@ workflows:
 
     are defined at the repository level
 
-- Define which triggers actually start the workflow
+- Defines which triggers actually start the workflow
 - They are composed of one or more jobs
 
 Jobs
