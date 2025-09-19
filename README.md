@@ -13,7 +13,7 @@ GitHub Actions is a CI/CD (Continuous Integration/Continuous Deployment) platfor
 - **Actions:** Reusable units of code that can be used in workflows.
 - **Runners:** Servers that run your workflows when they're triggered.
 
-**01-building workflow**
+**01-building block of  workflow**
 
 GitHub action building blocks
 
