@@ -13,7 +13,7 @@ jobs:
         runs-on: ubuntu-latest
         defaults:
             run:
-                working-directory: 13-caching/react-app
+                working-directory: .github/13-caching/react-app
         steps: 
         #1 . checkout the code
 
