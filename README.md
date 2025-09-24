@@ -145,3 +145,8 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 -it let one step pass data to another step in workflow in later steps ,they enable dynamic workflow where later steps depends on the result of  previous steps
 
 - we can set out put in 2 ways -uisng id and set-output(legecy)
+
+# *Caching* 
+
+-speed up workflow runs cachinh stable files
+-caching allows us to store files and later retrives them based on a key.workflows can access the cache from their branch or from default branch 
