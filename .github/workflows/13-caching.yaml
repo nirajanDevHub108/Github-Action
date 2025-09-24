@@ -34,7 +34,15 @@ jobs:
                   node-version: ${{inputs.node-version}}
 
      #2. install dependecies
+            - name: Download cached dependecies
+              uses: actions/cache@v3
+              if: ${{inputs.use-cache}}
+              id: cahce
+              with:
+                path: .github/13-caching/react-app/node_modules
+                key: deps-node-modules-${{hashFiles('.github/13-caching/react-app/package-lock.json')}}
             - name : Install dependencies
+              if: steps.cahce.outputs.cache-hit != 'true'
               run: npm ci
     #3.  unit testing,building
             - name : Testing
