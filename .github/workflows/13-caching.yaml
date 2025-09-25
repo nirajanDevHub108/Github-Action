@@ -84,7 +84,7 @@ jobs:
             - name: Building
               run : npm run build
 
-    #4. Deploying
+    #4. Deploying into non prod
             - name: Deploying to nonprod
               run: echo " Deploying to NonProd"
 
