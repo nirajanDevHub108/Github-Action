@@ -150,3 +150,9 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 
 -speed up workflow runs cachinh stable files
 -caching allows us to store files and later retrives them based on a key.workflows can access the cache from their branch or from default branch 
+
+# *Artifacts* 
+-share data between jobs and store data after workflows have completed
+-stored for up to 90 days
+-managed via - uplaod-artifact ,download-artifact
+-recomeneded when the stored files are likely to be accessed outside the workflow for example  build outputs,test results,logs
