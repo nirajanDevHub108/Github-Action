@@ -38,6 +38,7 @@ jobs:
 
     diploy:
          runs-on: ubuntu-latest
+         needs: test-build
          steps:
             - name: Download build artifacts
               uses: actions/download-artifact@v4
