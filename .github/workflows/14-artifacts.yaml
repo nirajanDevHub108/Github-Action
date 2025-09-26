@@ -11,9 +11,9 @@ jobs:
                working-directory: .github/14-artifacts
         steps:
             - name: Checkout Code
-              uses: actions/checkout@v3
-            - name : Setup Node
-              uses: actions/setup-node@v3
+              uses: actions/checkout@v4
+            - name: Setup Node
+              uses: actions/setup-node@v3 
               with:
                    node-version: '20.x'
             - name: Download  dependencies
@@ -28,3 +28,6 @@ jobs:
 
     diploy:
          runs-on: ubuntu-latest
+         steps:
+            - name: Deploying to non prod
+              run: echo " Deploying to NonProd"
