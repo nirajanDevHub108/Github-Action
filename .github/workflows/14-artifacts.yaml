@@ -1,0 +1,19 @@
+name: 14 - working with artifacts
+
+on:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+               working-directory: .github/14-artifacts
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+            - name : Setup Node
+              uses: actions/setup-node@v3
+
+    diploy:
+         runs-on: ubuntu-latest
