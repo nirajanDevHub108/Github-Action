@@ -7,8 +7,9 @@ jobs:
     test-build:
         runs-on: ubuntu-latest
         defaults:
-            run:
-               working-directory: .github/14-artifacts
+             run:
+               working-directory: .github/14-artifacts/react-app
+
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
