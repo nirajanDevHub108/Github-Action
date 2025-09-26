@@ -28,6 +28,12 @@ jobs:
               run: npm  ci
             - name: Unit testing
               run: npm run test
+            - name: Upload test results
+              uses: actions/upload-artifact@v4
+              with: 
+                name: test-coverage
+                path: .github/14-artifacts/react-app/coverage
+                 
             - name: Build-code
               run: npm run build
             - name: Upload build files
