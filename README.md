@@ -158,3 +158,7 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 -stored for up to 90 days
 -managed via - uplaod-artifact ,download-artifact
 -recomeneded when the stored files are likely to be accessed outside the workflow for example  build outputs,test results,logs
+
+# *Matricies* 
+- run several variations of the same job
+-under matrix strategy we decribe value to be used in multiple way
