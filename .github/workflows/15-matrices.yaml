@@ -8,7 +8,7 @@ jobs:
         name: ${{matrix.os}}-${{matrix.node-verion}}
         runs-on: ${{matrix.os}}
         strategy:
-            fail-fast: false
+            fail-fast: true
             matrix:
                 node-verion: [18.x,20.x,21.x]
                 os:
