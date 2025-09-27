@@ -44,7 +44,12 @@ jobs:
                 shape: [circle , square]
                 size: [small , large]
                 include:
-                    - color: red
+                    - opacity: 50
+                    - color : red
+                      opacity: 75
+                    - shape: circle
+                      opacity: 100
+                    - color : red
                     - shape: traingle
         steps:
             - name: Dummy step
