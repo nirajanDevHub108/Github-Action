@@ -22,6 +22,8 @@ jobs:
                 echo "Env variables :${{env.my-env-value}}"
     deploy-prod:
              runs-on: ubuntu-latest
+             needs:
+                 - echo
              environment: PROD
              env: 
                 my-env-value: ${{vars.MY_ENV_VAR || 'default value'}} 
