@@ -164,3 +164,7 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 -under matrix strategy we decribe value to be used in multiple way
 - **warning*
 -Each executed job count towards billing purpose. A matrix generating 9 jobs of 3 minutes each will lead to 27 minutes of billied time so that will be action time you used for runing long jobs
+
+# *Environments* 
+-allow us to create multiple env with diffrent rules for multiple deployments
+- env variablrs are available in the vars context,while secrets are available in the secrets contexts.
