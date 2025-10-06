@@ -20,4 +20,12 @@ jobs:
             - name: Echo vars
               run: |
                 echo "Env variables :${{env.my-env-value}}"
-    
+    deploy-prod:
+             runs-on: ubuntu-latest
+             environment: PROD
+             env: 
+                my-env-value: ${{vars.MY_ENV_VAR || 'default value'}} 
+             steps:
+                - name: Echo Vars
+                  run: |
+                     echo "Env variables :${{env.my-env-value}}"
