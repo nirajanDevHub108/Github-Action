@@ -20,6 +20,24 @@ jobs:
             - name: Echo vars
               run: |
                 echo "Env variables :${{env.my-env-value}}"
+    deploy-staging:
+            runs-on: ubuntu-latest
+            needs: 
+                - echo
+            environment: Staging
+            env: 
+                my-env-value: ${{vars.MY_ENV_VAR || 'default value'}} 
+            steps:
+                - name: Echo Vars
+                  run: |
+                     echo "Deploying to staging"
+    e2e-tests:
+        runs-on: ubuntu-latest
+        needs:
+            - deploy-staging
+        steps:
+            - name: E2E Tests
+              run: echo " Running E2E Tests"
     deploy-prod:
              runs-on: ubuntu-latest
              needs:
