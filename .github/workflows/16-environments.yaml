@@ -41,7 +41,7 @@ jobs:
     deploy-prod:
              runs-on: ubuntu-latest
              needs:
-                 - echo
+                 - e2e-tests
              environment: PROD
              env: 
                 my-env-value: ${{vars.MY_ENV_VAR || 'default value'}} 
