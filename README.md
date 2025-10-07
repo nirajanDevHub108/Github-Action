@@ -168,3 +168,8 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 # *Environments* 
 -allow us to create multiple env with diffrent rules for multiple deployments
 - env variablrs are available in the vars context,while secrets are available in the secrets contexts.
+
+# *Custom Actions*
+- write and reuse any custom logic 
+-cutsom logic allow us to write and encapsulate and reuse pieces of customlogic in any programming language .
+- 3 types composite,javascript,Docker actions
