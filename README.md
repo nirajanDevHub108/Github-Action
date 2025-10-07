@@ -173,3 +173,4 @@ cotains(),startsWith(),endsWith(),fromJSON(),toJSON()
 - write and reuse any custom logic 
 -cutsom logic allow us to write and encapsulate and reuse pieces of customlogic in any programming language .
 - 3 types composite,javascript,Docker actions
+-requires an action.yaml file ,must be on its own repository if it is to be resused by other repos.
