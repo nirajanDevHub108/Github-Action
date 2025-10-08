@@ -10,6 +10,10 @@ inputs:
                 description: The Working directory of the application
                 default: '.'
                 required: false
+    target-env:
+           description: '"dev" or "PROD" . Contorls wheter dev dependecies are installed'
+           default: dev
+           required: false
 runs:
    using: composite
    steps:
