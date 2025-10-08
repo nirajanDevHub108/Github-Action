@@ -18,3 +18,8 @@ jobs:
               run : pwd
             - name: List files in the repository
               run: ls -la
+            - name : Current branch name and time
+              run: echo "Branch:${{github.ref_name}} ,time:$(date) "
+
+            - name: printing sucess message
+              run: echo " I am lmastering Github Action in 60 days🚀"
