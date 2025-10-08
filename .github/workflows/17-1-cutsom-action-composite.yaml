@@ -1,7 +1,17 @@
 name: 17 - Custom Actions - Composite 
+run-name: 17 - Custom Actions - Composite | env - ${{inputs.target-env}}
 
 on: 
     workflow_dispatch:
+        inputs:
+            target-env:
+                description: which environment to target for dependency installation
+                type: choice
+                options:
+                      - dev
+                      - staging
+                      - PROD
+
 env:
     working-directory: .github/13-caching/react-app
 jobs:
@@ -17,6 +27,7 @@ jobs:
               with:
                 node-version: 20.x
                 working-directory: ${{env.working-directory}}
+                target-env: ${{inputs.target-env}}
             - name: Test
               run: npm run test
               working-directory: ${{env.working-directory}}
