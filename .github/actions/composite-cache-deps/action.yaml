@@ -11,7 +11,8 @@ inputs:
                 default: '.'
                 required: false
     target-env:
-           description: '"dev" or "PROD" . Contorls wheter dev dependecies are installed'
+           description: 'dev or PROD. Controls whether dev dependencies are installed'
+
            default: dev
            required: false
 runs:
@@ -26,11 +27,19 @@ runs:
         uses: actions/cache@v3
         with:
             path: ${{ inputs.working-directory }}/node_modules
-            key: node-modules-${{inputs.target-env}}${{ hashFiles(format('{0}/package-lock.json', inputs.working-directory)) }}
+            key: node-modules-${{ inputs.target-env }}-${{ hashFiles(format('{0}/package-lock.json', inputs.working-directory)) }}
 
-      - name: install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true' 
-        run: ${{ inputs.target-env == 'dev' && 'npm ci' || npm ci --omit=dev }}
+
+      - name: Install Dev Dependencies
+        if: ${{ inputs.target-env == 'dev' && steps.cache.outputs.cache-hit != 'true' }}
+        run: npm ci
         shell: bash
-        working-directory: ${{inputs.working-directory}}
+        working-directory: ${{ inputs.working-directory }}
+
+      - name: Install Prod Dependencies
+        if: ${{ inputs.target-env != 'dev' && steps.cache.outputs.cache-hit != 'true' }}
+        run: npm ci --omit=dev
+        shell: bash
+        working-directory: ${{ inputs.working-directory }}
+
 
