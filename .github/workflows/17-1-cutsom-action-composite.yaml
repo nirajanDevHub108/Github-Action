@@ -13,7 +13,7 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: Setup Node and NPM Dependecies
-              uses: ./github/actions/composite-cache-deps/action.yaml
+              uses: .github/actions/composite-cache-deps/action.yaml
               with:
                 node-version: 20.x
                 working-directory: ${{env.working-directory}}
