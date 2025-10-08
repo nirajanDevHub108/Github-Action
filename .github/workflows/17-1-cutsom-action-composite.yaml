@@ -1,0 +1,17 @@
+name: 17 - Custom Actions - Composite 
+
+on: 
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setup Node and NPM Dependecies
+              uses: .github/actions/composite-cache-deps/action.yaml
+              with:
+                node-version: 20.x
+                working-directory: .github/13-caching/react-app
+            - name: Test
+              run: npm run test
+              working-directory: .github/13-caching/react-app
