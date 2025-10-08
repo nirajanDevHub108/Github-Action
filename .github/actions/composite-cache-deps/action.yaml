@@ -29,13 +29,8 @@ runs:
             key: node-modules-${{ hashFiles(format('{0}/package-lock.json', inputs.working-directory)) }}
 
       - name: install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true' && inputs.target-env == 'dev'
-        run: npm ci
-        shell: bash
-        working-directory: ${{inputs.working-directory}}
-      - name: install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true' && inputs.target-env != 'dev'
-        run: npm ci --omit=dev
+        if: steps.cache.outputs.cache-hit != 'true' 
+        run: ${{ inputs.target-env == 'dev' && 'npm ci' || npm ci --omit=dev }}
         shell: bash
         working-directory: ${{inputs.working-directory}}
 
