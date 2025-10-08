@@ -9,7 +9,7 @@ jobs:
     say-hello:
         runs-on: ubuntu-latest
         steps:
-            - name : checkout code
+            - name: checkout code
               uses: actions/checkout@v4
 
             - name: Say Hello
@@ -18,7 +18,7 @@ jobs:
               run : pwd
             - name: List files in the repository
               run: ls -la
-            - name : Current branch name and time
+            - name: Current branch name and time
               run: echo "Branch:${{github.ref_name}} ,time:$(date) "
 
             - name: printing sucess message
