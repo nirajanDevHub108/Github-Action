@@ -22,4 +22,4 @@ jobs:
               run: echo "Branch:${{github.ref_name}} ,time:$(date) "
 
             - name: printing sucess message
-              run: echo " I am lmastering Github Action in 60 days🚀"
+              run: echo " I am mastering Github Action in 60 days🚀"
