@@ -10,11 +10,11 @@ jobs:
         env:
             COURSE_NAME: "GitHub Actions 60-Day Challenge"
             DAY_NUMBER: 2
-            AUTHOR_NAME: "Nirajan Singh"
+            AUTHOR: "Nirajan Singh"
         steps:
             - name: checkout code
               uses: actions/checkout@v4
-              
+
             - name: Print environment variables
               run: |
                 echo "📘 Course: $COURSE_NAME"
