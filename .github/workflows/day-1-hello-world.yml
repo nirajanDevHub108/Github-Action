@@ -2,9 +2,6 @@ name: Day - 1 Hello World Workflow
 
 on:
     workflow_dispatch:
-    push:
-        branches:
-            - main
 jobs:
     say-hello:
         runs-on: ubuntu-latest
