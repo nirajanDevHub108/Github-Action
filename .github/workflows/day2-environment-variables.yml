@@ -11,6 +11,7 @@ jobs:
             COURSE_NAME: "GitHub Actions 60-Day Challenge"
             DAY_NUMBER: 2
             AUTHOR: "Nirajan Singh"
+            TARGET_ENV: "Staging"
         steps:
             - name: checkout code
               uses: actions/checkout@v4
@@ -35,6 +36,10 @@ jobs:
                    echo "Current mood: $MOOD"
 
             - name: Combine contexts and env
-              run: echo "Day $DAY_NUMBER by $AUTHOR run by ${{ github.actor}} from branch ${{github.ref_name}}"
+              run: |
+                 echo "Day $DAY_NUMBER by $AUTHOR run by ${{ github.actor}} from branch ${{github.ref_name}}"
+
+                 echo "Deploying Day $DAY_NUMBER workflow by ${{github.actor}} to $TARGET_ENV environment 🚀 "
+
 
 
