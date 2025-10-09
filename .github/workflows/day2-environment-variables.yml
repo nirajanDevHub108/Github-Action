@@ -31,8 +31,9 @@ jobs:
             - name: Step-level env example
               env:
                 MOOD: "🔥 Focused and ready!"
-              run: 
-                echo "Current mood: $MOOD "
+              run: |
+                   echo "Current mood: $MOOD"
+
             - name: Combine contexts and env
               run: echo "Day $DAY_NUMBER by $AUTHOR run by ${{ github.actor}} from branch ${{github.ref_name}}"
 
