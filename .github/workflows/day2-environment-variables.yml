@@ -20,3 +20,12 @@ jobs:
                 echo "📘 Course: $COURSE_NAME"
                 echo "📅 Day: $DAY_NUMBER"
                 echo "👨‍💻 Author: $AUTHOR"
+
+            - name: Print GitHub context details
+              run: |
+                  echo "🧑‍🎓 Actor: ${{ github.actor }}"
+                  echo "🏠 Repository: ${{github.repository}}"
+                  echo "🌿 Branch: ${{github.ref_name}} "
+                  echo "🕒 Run Number: ${{github.run_number}}"
+                  echo "🔗 Workflow URL: ${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}"
+
