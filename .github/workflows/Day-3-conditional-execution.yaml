@@ -14,4 +14,8 @@ jobs:
               uses: actions/checkout@v4
             
             - name: Always run step
-              run: echo"This always runs ✅"
+              run: 
+                  echo "This always runs ✅"
+            - name: Run only on main branch
+              if: github.ref_name == 'main'
+              run: echo "You're on main branch 🌿"
