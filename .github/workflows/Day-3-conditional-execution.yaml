@@ -19,3 +19,9 @@ jobs:
             - name: Run only on main branch
               if: github.ref_name == 'main'
               run: echo "You're on main branch 🌿"
+            - name: Run only if dev env
+              if: env.TARGET_ENV == 'dev'
+              run: echo "Deploying to development environment 🚀"
+            - name: Run on failure
+              if: failure()
+              run: echo "Something went wrong ❌"
