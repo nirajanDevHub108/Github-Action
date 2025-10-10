@@ -7,7 +7,7 @@ jobs:
     conditional-task:
         runs-on: ubuntu-latest
         env:
-            TARGET-ENV: 'Prod'
+            TARGET_ENV: 'Prod'
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -15,7 +15,7 @@ jobs:
               run: 
                   echo "This always runs ✅"
             - name: Run only if prod env
-              if: env.TARGET-ENV == 'prod'
+              if: env.TARGET_ENV == 'Prod'
               run: echo "Deploying to Production environment 🚀"
             - name: Run only on main branch
               if: github.ref_name == 'main'
