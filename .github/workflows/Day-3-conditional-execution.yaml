@@ -1,0 +1,17 @@
+name: Day - 3 Conditional Execution Workflow
+
+on:
+    workflow_dispatch:
+
+
+jobs:
+    conditional-demo:
+        runs-on: ubuntu-latest
+        env:
+            TARGET_ENV: "dev"
+        steps:
+            - name: Checkout repository code
+              uses: actions/checkout@v4
+            
+            - name: Always run step
+              run: echo"This always runs ✅"
