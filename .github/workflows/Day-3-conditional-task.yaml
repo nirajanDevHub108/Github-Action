@@ -1,0 +1,29 @@
+name: Day - 3 conditional-task workflow
+
+on:
+    workflow_dispatch:
+
+jobs:
+    conditional-task:
+        runs-on: ubuntu-latest
+        env:
+            TARGET-ENV: 'Prod'
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Always run step
+              run: 
+                  echo "This always runs ✅"
+            - name: Run only if prod env
+              if: env.TARGET-ENV == 'prod'
+              run: echo "Deploying to Production environment 🚀"
+            - name: Run only on main branch
+              if: github.ref_name == 'main'
+              run: echo "You're on main branch 🌿"
+            - name: Run on failure
+              if: failure()
+              run: echo "Something went wrong ❌"
+            - name: Workflow triggered by
+              if: github.actor == 'NirajanSingh'
+              run: echo " workflow triggered by ${{github.actor}} on branch ${{github.ref_name}}"
+              
