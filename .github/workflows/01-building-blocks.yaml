@@ -1,4 +1,4 @@
-name: 01 - Building Blocks
+name: 01 - Building Blocks of github action
 
 on: workflow_dispatch
 
